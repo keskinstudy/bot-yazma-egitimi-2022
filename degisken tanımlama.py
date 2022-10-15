@@ -29,7 +29,7 @@ print(NUMBER)
 
 #DEĞİŞKENLERDEKİ VERİLERİ BİRLEŞTİRME
 x = 1 # int
-y = 1.2 # floar
+y = 1.2 # float
 ad = "ismail" #string
 sinav_basarili_mi = True # boolean
 
