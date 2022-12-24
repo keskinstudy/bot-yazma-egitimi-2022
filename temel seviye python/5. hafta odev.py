@@ -11,7 +11,7 @@ print(len(paragraflar))
 # 2- "bilgi" değişkenindeki metin kaç cümle?
 paragraflar = (bilgi.split("."))
 print(len(paragraflar))
-# 3- "bilgi" değişkenindeki metni küçük harfe çevirdiğimizde,
+# 3- "bilgi" değişkenindeki metni küçük harfe çevirdiğimizde,   
 # "python" kelimesi kaç defa geçiyor?
 print(paragraflar[0].lower().count("python"))
 
