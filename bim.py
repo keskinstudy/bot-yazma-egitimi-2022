@@ -56,7 +56,25 @@ for i, tarih in enumerate(tarihler):
         except:
             continue
 
+        try:
+            marka = urun.find_element(By.XPATH, ".//div[@class='textArea']")
+        except:
+            marka = ""
 
+        # ürünun acıklaması varsa
+        try:
+            aciklama = urun.find_element(By.XPATH, ".//div[@class='textArea']")
+        except:
+            aciklama = ""
+
+        # 3.1.3. ürünün fiyatını oku
+        fiyat = urun.find_element(By.XPATH, ".//a[@class='gButton triangle']").text
+
+        print("-"*50)
+        print("Ad:", ad.text)
+        print("Marka:", marka)
+        print("Açıklama:", aciklama)
+        print("Fiyat:", fiyat.replace("\n", ""))
 
 
 
