@@ -11,6 +11,7 @@
 from selenium.webdriver.common.by import By
 from time import sleep
 from modüller.tarayici import Tarayici
+from urllib import request
 
 
 
@@ -50,7 +51,10 @@ for i, tarih in enumerate(tarihler):
             continue
 
         try:
-            urun.find_element(By.TAG_NAME, "img").screenshot(f"./gorseller/{ad.text}.png")
+           # eski urun.find_element(By.TAG_NAME, "img").screenshot(f"./gorseller/{ad.text}.png")
+            img = urun.find_element(By.TAG_NAME, "img")
+            img_src = img.get_attribute("src")
+           request.urlretrieve(img_src, )
         # ürünün adını alalım
         # 3.1.1. ürün resmini kaydet
         except:
