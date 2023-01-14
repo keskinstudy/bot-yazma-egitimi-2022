@@ -34,6 +34,12 @@ sleep(1)
 # 3. Tarihlere tıklayarak aşağıdaki işlemleri yap
 tarihler = tarayici.find_elements(By.XPATH, "//div[@class='subButtonArea subButtonArea-5 active']//a")
 
+
+
+
+
+
+
 # tarihlerdeki işlemleri for içinde yapıcağız
 for i, tarih in enumerate(tarihler):
     # tarayici.execute_script("window.scrollTo(0, 0);") yukarı kaydırma hatayı gidermedi
@@ -41,6 +47,12 @@ for i, tarih in enumerate(tarihler):
     tarayici.execute_script("arguments[0].click();", tarih)
     # tarih.click()   sayfa yenileniyor
     sleep(1)
+
+    while True:
+        try:
+            tarayici.find_element(By.XPATH, "//a[@href='javascript:;changeLPage();']").click()
+        except:
+            break
 
     # 3.1 ürünler içinde aşağıdaki işlemleri yap
     urunler = tarayici.find_elements(By.XPATH, "//div[contains(@class, 'product')]")
@@ -56,6 +68,8 @@ for i, tarih in enumerate(tarihler):
             img_src = img.get_attribute("src")
             img_adi = img_src.split("/")[-1]
             request.urlretrieve(img_src, f"./gorseller/{img_adi}" )
+
+
         # ürünün adını alalım
         # 3.1.1. ürün resmini kaydet
         except:
